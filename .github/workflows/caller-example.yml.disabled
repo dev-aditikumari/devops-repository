@@ -1,0 +1,18 @@
+# Example of calling the reusable workflow from another repository.
+# Copy to .github/workflows/ci.yml in that repo (without the .disabled suffix).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    uses: dev-aditikumari/devops-repository/.github/workflows/reusable-node-ci.yml@main
+    with:
+      node-version: "20"
+      working-directory: "."
