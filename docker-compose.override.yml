@@ -1,0 +1,20 @@
+# Picked up automatically by `docker compose up`. Local development only.
+services:
+  api:
+    build:
+      target: build
+    command: npx tsx watch src/server.ts
+    environment:
+      NODE_ENV: development
+      LOG_LEVEL: debug
+    volumes:
+      - ./service/src:/app/src
+    develop:
+      watch:
+        - action: rebuild
+          path: ./service/package.json
+    ports:
+      - "${PORT:-5300}:5300"
+  db:
+    ports:
+      - "127.0.0.1:5432:5432"
