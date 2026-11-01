@@ -36,7 +36,7 @@ jobs:
     env:
       DATABASE_URL: postgres://ci:ci-only-password@localhost:5432/notes_test
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: 20
